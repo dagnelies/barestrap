@@ -56,7 +56,7 @@ input[type="radio"] {
 
 // Tables
 table {
-  @extend .table;
+  @extend .table, .table-striped, .table-hover;
 }
 
 // Cards: <article><header/><main/><footer/></article>
@@ -101,6 +101,13 @@ body > nav a[aria-current] {
   @extend .active;
 }
 
-body > main:only-child {
+body > main {
   @extend .container;
 }
+
+@layer custom {
+  section {
+    margin-block: var(--spacer-8);
+  }
+}
+

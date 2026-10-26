@@ -954,7 +954,7 @@
   .table-borderless > :not(:first-child) {
     border-block-start-width: 0;
   }
-  .table-striped > tbody > tr:nth-of-type(odd) > * {
+  .table-striped > tbody > tr:nth-of-type(odd) > *, table > tbody > tr:nth-of-type(odd) > * {
     --table-color-type: var(--theme-fg, var(--table-striped-color));
     --table-bg-type: color-mix(in srgb, var(--theme-fg, var(--table-color)) var(--table-striped-bg-factor), transparent);
   }
@@ -966,7 +966,7 @@
     --table-color-state: var(--theme-fg, var(--table-active-color));
     --table-bg-state: color-mix(in srgb, var(--theme-fg, var(--table-color)) var(--table-active-bg-factor), transparent);
   }
-  .table-hover > tbody > tr:hover > * {
+  .table-hover > tbody > tr:hover > *, table > tbody > tr:hover > * {
     --table-color-state: var(--theme-fg, var(--table-hover-color));
     --table-bg-state: color-mix(in srgb, var(--theme-fg, var(--table-color)) var(--table-hover-bg-factor), transparent);
   }
@@ -1285,7 +1285,7 @@
   }
 }
 @layer layout {
-  .container, body > main:only-child,
+  .container, body > main,
   .container-fluid,
   .\32 xl\:container,
   .xl\:container,
@@ -1299,27 +1299,27 @@
     margin-inline: auto;
   }
   @media (width >= 576px) {
-    .sm\:container, .container, body > main:only-child {
+    .sm\:container, .container, body > main {
       max-width: 540px;
     }
   }
   @media (width >= 768px) {
-    .md\:container, .sm\:container, .container, body > main:only-child {
+    .md\:container, .sm\:container, .container, body > main {
       max-width: 720px;
     }
   }
   @media (width >= 1024px) {
-    .lg\:container, .md\:container, .sm\:container, .container, body > main:only-child {
+    .lg\:container, .md\:container, .sm\:container, .container, body > main {
       max-width: 960px;
     }
   }
   @media (width >= 1280px) {
-    .xl\:container, .lg\:container, .md\:container, .sm\:container, .container, body > main:only-child {
+    .xl\:container, .lg\:container, .md\:container, .sm\:container, .container, body > main {
       max-width: 1200px;
     }
   }
   @media (width >= 1536px) {
-    .\32 xl\:container, .xl\:container, .lg\:container, .md\:container, .sm\:container, .container, body > main:only-child {
+    .\32 xl\:container, .xl\:container, .lg\:container, .md\:container, .sm\:container, .container, body > main {
       max-width: 1440px;
     }
   }
@@ -2676,7 +2676,7 @@
     color: var(--navbar-color, var(--fg-body));
     background-color: var(--navbar-bg, var(--bg-body));
   }
-  .navbar > .\32 xl\:container, body > nav > .\32 xl\:container, .navbar > .xl\:container, body > nav > .xl\:container, .navbar > .lg\:container, body > nav > .lg\:container, .navbar > .md\:container, body > nav > .md\:container, .navbar > .sm\:container, body > nav > .sm\:container, .navbar > .container, body > nav > .container, body.navbar > main:only-child,
+  .navbar > .\32 xl\:container, body > nav > .\32 xl\:container, .navbar > .xl\:container, body > nav > .xl\:container, .navbar > .lg\:container, body > nav > .lg\:container, .navbar > .md\:container, body > nav > .md\:container, .navbar > .sm\:container, body > nav > .sm\:container, .navbar > .container, body > nav > .container, body.navbar > main,
   .navbar > .container-fluid,
   body > nav > .container-fluid {
     display: flex;
@@ -2749,7 +2749,7 @@
     mask-position: center;
     mask-size: contain;
   }
-  .navbar-expand > .container, body > nav > .container, body.navbar-expand > main:only-child,
+  .navbar-expand > .container, body > nav > .container, body.navbar-expand > main,
   .navbar-expand > .container-fluid,
   body > nav > .container-fluid {
     flex-wrap: nowrap;
@@ -2798,7 +2798,7 @@
     justify-content: flex-start;
   }
   @container (width >= 576px) {
-    .sm\:navbar-expand > .container, body.sm\:navbar-expand > main:only-child,
+    .sm\:navbar-expand > .container, body.sm\:navbar-expand > main,
     .sm\:navbar-expand > .container-fluid {
       flex-wrap: nowrap;
       justify-content: flex-start;
@@ -2843,7 +2843,7 @@
     }
   }
   @container (width >= 768px) {
-    .md\:navbar-expand > .container, body.md\:navbar-expand > main:only-child,
+    .md\:navbar-expand > .container, body.md\:navbar-expand > main,
     .md\:navbar-expand > .container-fluid {
       flex-wrap: nowrap;
       justify-content: flex-start;
@@ -2888,7 +2888,7 @@
     }
   }
   @container (width >= 1024px) {
-    .lg\:navbar-expand > .container, body.lg\:navbar-expand > main:only-child,
+    .lg\:navbar-expand > .container, body.lg\:navbar-expand > main,
     .lg\:navbar-expand > .container-fluid {
       flex-wrap: nowrap;
       justify-content: flex-start;
@@ -2933,7 +2933,7 @@
     }
   }
   @container (width >= 1280px) {
-    .xl\:navbar-expand > .container, body.xl\:navbar-expand > main:only-child,
+    .xl\:navbar-expand > .container, body.xl\:navbar-expand > main,
     .xl\:navbar-expand > .container-fluid {
       flex-wrap: nowrap;
       justify-content: flex-start;
@@ -2978,7 +2978,7 @@
     }
   }
   @container (width >= 1536px) {
-    .\32 xl\:navbar-expand > .container, body.\32 xl\:navbar-expand > main:only-child,
+    .\32 xl\:navbar-expand > .container, body.\32 xl\:navbar-expand > main,
     .\32 xl\:navbar-expand > .container-fluid {
       flex-wrap: nowrap;
       justify-content: flex-start;
@@ -3156,5 +3156,10 @@
   }
   .theme-muted {
     --theme-fg: var(--theme-fg-emphasis);
+  }
+}
+@layer custom {
+  section {
+    margin-block: var(--spacer-8);
   }
 }
