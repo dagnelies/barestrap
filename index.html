@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Barestrap</title>
+  <link rel="stylesheet" href="dist/barestrap.css">
+  <script defer>
+    // Append each example's live markup as a code block.
+    document.querySelectorAll("main > section > div").forEach((example) => {
+      const lines = example.innerHTML.replace(/^\n+|\s+$/g, "").replace(/=""/g, "").split("\n");
+      const indent = Math.min(...lines.filter((l) => l.trim()).map((l) => l.match(/^ */)[0].length));
+      const pre = document.createElement("pre");
+      const code = document.createElement("code");
+      code.textContent = lines.map((l) => l.slice(indent)).join("\n");
+      pre.append(code);
+      example.after(pre);
+    });
+  </script>
+</head>
+<body>
+  <main>
+    <h1>Barestrap</h1>
+    <p>Classless Bootstrap 6. Each example shows the rendered elements, followed by their markup.</p>
+
+    <section>
+      <h2>Typography</h2>
+      <div>
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+        <p>A paragraph with a <a href="#">link</a>, <strong>strong</strong>, <em>emphasis</em>, <small>small</small>, <mark>mark</mark>, <code>code</code> and <kbd>kbd</kbd> text.</p>
+        <blockquote>A quoted sentence.</blockquote>
+        <hr>
+      </div>
+    </section>
+
+    <section>
+      <h2>Lists</h2>
+      <div>
+        <ul>
+          <li>Unordered item</li>
+          <li>Another item</li>
+        </ul>
+        <ol>
+          <li>Ordered item</li>
+          <li>Another item</li>
+        </ol>
+        <dl>
+          <dt>Term</dt>
+          <dd>Description</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section>
+      <h2>Buttons</h2>
+      <div>
+        <button>Button</button>
+        <button disabled>Disabled</button>
+        <a href="#" role="button">Link button</a>
+        <input type="submit" value="Submit">
+      </div>
+    </section>
+
+    <section>
+      <h2>Forms</h2>
+      <div>
+        <form>
+          <label>Text
+            <input type="text" placeholder="Jane Doe">
+          </label>
+          <label>Email
+            <input type="email" placeholder="jane@example.com">
+          </label>
+          <label>Password
+            <input type="password" value="secret">
+          </label>
+          <label>Number
+            <input type="number" value="42">
+          </label>
+          <label>Date
+            <input type="date">
+          </label>
+          <label>Disabled
+            <input type="text" value="Disabled" disabled>
+          </label>
+          <label>Select
+            <select>
+              <option>One</option>
+              <option>Two</option>
+              <option>Three</option>
+            </select>
+          </label>
+          <label>Textarea
+            <textarea rows="3"></textarea>
+          </label>
+          <label><input type="checkbox" checked> Checkbox</label>
+          <label><input type="checkbox" role="switch"> Switch</label>
+          <label><input type="radio" name="radio" checked> Radio</label>
+          <label><input type="radio" name="radio"> Radio</label>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+
+    <section>
+      <h2>Tables</h2>
+      <div>
+        <table>
+          <thead>
+            <tr><th>#</th><th>Name</th><th>Role</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Ada Lovelace</td><td>Mathematician</td></tr>
+            <tr><td>2</td><td>Alan Turing</td><td>Computer scientist</td></tr>
+            <tr><td>3</td><td>Grace Hopper</td><td>Rear admiral</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Cards</h2>
+      <div>
+        <article>
+          <header>Header</header>
+          <main>
+            <h5>Title</h5>
+            <p>Some content inside the card.</p>
+            <button>Action</button>
+          </main>
+          <footer>Footer</footer>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Code</h2>
+      <div>
+        <pre><code>npm run build</code></pre>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
