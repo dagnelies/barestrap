@@ -1,0 +1,106 @@
+// Barestrap: maps semantic HTML elements to Bootstrap's own classes via @extend.
+// No variables or tokens are redefined here; everything comes from Bootstrap.
+// Configure like Bootstrap: @use "barestrap" with ($enable-shadows: true);
+
+@forward "bootstrap/scss/config";
+@forward "bootstrap/scss/colors";
+@forward "bootstrap/scss/theme";
+
+@use "bootstrap/scss/root";
+@use "bootstrap/scss/content/reboot";
+@use "bootstrap/scss/content/lists";
+@use "bootstrap/scss/content/blockquote";
+@use "bootstrap/scss/content/tables";
+@use "bootstrap/scss/content/images";
+@use "bootstrap/scss/layout/containers";
+@use "bootstrap/scss/forms/labels";
+@use "bootstrap/scss/forms/form-control";
+@use "bootstrap/scss/forms/check";
+@use "bootstrap/scss/forms/radio";
+@use "bootstrap/scss/forms/switch";
+@use "bootstrap/scss/buttons/button";
+@use "bootstrap/scss/card";
+@use "bootstrap/scss/nav";
+@use "bootstrap/scss/navbar";
+@use "bootstrap/scss/helpers/theme-colors";
+
+// Buttons
+button,
+a[role="button"],
+input:is([type="button"], [type="submit"], [type="reset"]) {
+  @extend .btn, .btn-styled, .btn-solid, .theme-primary;
+}
+
+// Forms
+label {
+  @extend .form-label;
+}
+
+input:not([type="button"], [type="submit"], [type="reset"], [type="checkbox"], [type="radio"], [type="range"], [type="file"], [type="color"], [type="hidden"]),
+select,
+textarea {
+  @extend .form-control;
+}
+
+input[type="checkbox"] {
+  @extend .check;
+}
+
+input[type="checkbox"][role="switch"] {
+  @extend .switch;
+}
+
+input[type="radio"] {
+  @extend .radio;
+}
+
+// Tables
+table {
+  @extend .table;
+}
+
+// Cards: <article><header/><main/><footer/></article>
+article {
+  @extend .card;
+}
+
+article > header {
+  @extend .card-header;
+}
+
+article > main {
+  @extend .card-body;
+}
+
+article > footer {
+  @extend .card-footer;
+}
+
+// Navbar: <body><nav><strong/><ul><li><a/></li></ul></nav>
+body > nav {
+  @extend .navbar, .navbar-expand, .theme-primary;
+}
+
+body > nav > :is(a, strong):first-child {
+  @extend .navbar-brand;
+}
+
+body > nav ul {
+  @extend .nav, .navbar-nav;
+}
+
+body > nav li {
+  @extend .nav-item;
+}
+
+body > nav li > a {
+  @extend .nav-link;
+}
+
+body > nav a[aria-current] {
+  @extend .active;
+}
+
+body > main:only-child {
+  @extend .container;
+}

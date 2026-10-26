@@ -1,0 +1,35 @@
+{
+  "name": "barestrap",
+  "version": "0.1.0",
+  "description": "Classless, lightweight Bootstrap 6 styling: semantic HTML elements styled with Bootstrap's SASS/CSS variables.",
+  "sass": "scss/barestrap.scss",
+  "style": "dist/barestrap.css",
+  "files": [
+    "scss",
+    "dist"
+  ],
+  "scripts": {
+    "build": "sass --load-path=node_modules --no-source-map scss/barestrap.scss dist/barestrap.css",
+    "watch": "npm run build -- --watch",
+    "serve": "browser-sync start --server --files 'dist/*.css, index.html' --no-notify",
+    "dev": "run-p watch serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dagnelies/barestrap.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dagnelies/barestrap/issues"
+  },
+  "homepage": "https://github.com/dagnelies/barestrap#readme",
+  "peerDependencies": {
+    "bootstrap": "^6.0.0-alpha.1"
+  },
+  "devDependencies": {
+    "bootstrap": "^6.0.0-alpha.1",
+    "browser-sync": "^3.0.4",
+    "npm-run-all2": "^9.0.4",
+    "sass": "^1.106.1"
+  }
+}
